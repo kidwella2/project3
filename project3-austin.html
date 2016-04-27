@@ -1479,18 +1479,18 @@
       width: 701px;
       height: 1312px;
       transform-style: preserve-3d;
-      transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale3d(0.1, 0.1, 1);
       left: -315.35px;
       top: -590.2px;
+      transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale3d(0.1, 0.1, 1);
     }
     [data-gwd-group="person2"] .gwd-grp-4xh4.gwd-img-1h60 {
       position: absolute;
       width: 701px;
       height: 1312px;
       transform-style: preserve-3d;
-      transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale3d(0.1, 0.1, 1);
       left: -315.35px;
       top: -590.2px;
+      transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale3d(0.1, 0.1, 1);
     }
     [data-gwd-group="person2"] .gwd-grp-4xh4.gwd-img-vwxe {
       position: absolute;
@@ -2578,13 +2578,6 @@
         animation-timing-function: linear;
       }
     }
-    .gwd-youtube-1583 {
-      position: absolute;
-      width: 200px;
-      height: 140px;
-      left: -208px;
-      top: 243px;
-    }
     @keyframes gwd-gen-dzahgwdanimation_gwd-keyframes {
       0% {
         transform: translate3d(-774px, -595px, 0px) rotateZ(-99deg) scale3d(0.1, 0.1, 1);
@@ -2640,9 +2633,18 @@
     .gwd-span-mqrk {
       font-size: 24px;
     }
+    .gwd-audio-11vh {
+      position: absolute;
+      width: 200px;
+      height: 140px;
+      left: 34px;
+      top: 262px;
+      overflow: hidden;
+      border-style: hidden;
+      border-width: 3px;
+    }
   </style>
   <link href="gwdpage_style.css" data-version="8" data-exports-type="gwd-page" rel="stylesheet">
-  <link href="gwdyoutube_style.css" data-version="11" data-exports-type="gwd-youtube" rel="stylesheet">
   <link href="gwdtaparea_style.css" data-version="4" data-exports-type="gwd-taparea" rel="stylesheet">
   <link href="gwdimage_style.css" data-version="7" data-exports-type="gwd-image" rel="stylesheet">
   <link href="gwdpagedeck_style.css" data-version="8" data-exports-type="gwd-pagedeck" rel="stylesheet">
@@ -2656,7 +2658,6 @@
   <script data-source="gwdbezierpath_min.js" data-version="3" data-exports-type="gwd-bezierpath" type="text/javascript" src="gwdbezierpath_min.js"></script>
   <script data-source="gwdimage_min.js" data-version="7" data-exports-type="gwd-image" type="text/javascript" src="gwdimage_min.js"></script>
   <script data-source="gwdtaparea_min.js" data-version="4" data-exports-type="gwd-taparea" type="text/javascript" src="gwdtaparea_min.js"></script>
-  <script data-source="gwdyoutube_min.js" data-version="11" data-exports-type="gwd-youtube" type="text/javascript" src="gwdyoutube_min.js"></script>
   <script type="text/javascript" src="groups_runtime.min.1.0.js" gwd-groups-version="1.0"></script>
   <script type="text/javascript" src="gwdid.min.1.0.js" gwd-gwdid-version="1.0"></script>
   <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
@@ -2809,6 +2810,14 @@
       // GWD Predefined Function
       gwd.actions.gwdPagedeck.goToPage('pagedeck', 'page1', 'none', 1000, 'linear', 'top');
     };
+    gwd.auto_Restart2Action1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.gwdAudio.pause('gwd-audio_1');
+    };
+    gwd.auto_C10Action1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.gwdAudio.replay('gwd-audio_1');
+    };
   </script>
   <script type="text/javascript" gwd-events="registration">
     // Support code for event handling in Google Web Designer
@@ -2851,6 +2860,8 @@
       gwd.actions.events.addHandler('restart', 'action', gwd.auto_RestartAction, false);
       gwd.actions.events.addHandler('restart1', 'action', gwd.auto_Restart1Action, false);
       gwd.actions.events.addHandler('restart2', 'action', gwd.auto_Restart2Action, false);
+      gwd.actions.events.addHandler('restart2', 'action', gwd.auto_Restart2Action1, false);
+      gwd.actions.events.addHandler('c10', 'action', gwd.auto_C10Action1, false);
     };
     gwd.actions.events.deregisterEventHandlers = function(event) {
       gwd.actions.events.removeHandler('start', 'action', gwd.auto_StartAction, false);
@@ -2890,10 +2901,13 @@
       gwd.actions.events.removeHandler('restart', 'action', gwd.auto_RestartAction, false);
       gwd.actions.events.removeHandler('restart1', 'action', gwd.auto_Restart1Action, false);
       gwd.actions.events.removeHandler('restart2', 'action', gwd.auto_Restart2Action, false);
+      gwd.actions.events.removeHandler('restart2', 'action', gwd.auto_Restart2Action1, false);
+      gwd.actions.events.removeHandler('c10', 'action', gwd.auto_C10Action1, false);
     };
     document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
     document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
   </script>
+  <script data-source="gwdaudio_min.js" data-version="3" data-exports-type="gwd-audio" type="text/javascript" src="gwdaudio_min.js"></script>
 </head>
 
 <body>
@@ -3010,8 +3024,7 @@
         <div class="gwd-page-content gwd-div-147i">
           <canvas is="gwd-rectangle" width="320" height="480" class="gwd-canvas-i9cn" x-off="0" y-off="0" stroke-width="1" stroke-color="[0,0,0,1]" fill-color="[0,0.6,0,1]" tl-radius="0" tr-radius="0" bl-radius="0" br-radius="0" stroke-style="Solid" data-gwd-tl-locked=""></canvas>
           <p class="gwd-p-r3pl" data-gwd-tl-locked=""><span class="gwd-span-1735 gwd-span-1b4y gwd-span-mqrk">There is a math question at the start of each path. Click the path with the correct answer to go to the next path. Click the wrong path and you will get lost and have to restart. Click all the correct answers to get to your final destination.</span>
-            <br
-            class="">
+            <br class="">
           </p>
           <canvas is="gwd-rectangle" width="120" height="40" class="gwd-canvas-54ih" x-off="1.4210854715202004e-14" y-off="0" stroke-width="1" stroke-color="[0,0,0,1]" fill-color="[1,0.4,0,1]" tl-radius="10" tr-radius="10" bl-radius="10" br-radius="10" stroke-style="Solid"
           data-gwd-tl-locked=""></canvas>
@@ -3302,7 +3315,7 @@
           <gwd-taparea id="restart2" class="gwd-taparea-1sre" data-gwd-tl-locked=""></gwd-taparea>
           <canvas is="gwd-rectangle" width="320" height="340" class="gwd-canvas-1orx gwd-gen-kivvgwdanimation" x-off="0" y-off="0" stroke-width="1" stroke-color="[1,1,1,1]" fill-color="[1,1,1,1]" tl-radius="0" tr-radius="0" bl-radius="0" br-radius="0" stroke-style="Solid"
           data-gwd-tl-locked=""></canvas>
-          <gwd-youtube id="gwd-youtube_1" video-url="https://youtu.be/npjF032TDDQ" annotations="" related="" title="" class="gwd-youtube-1583" data-gwd-name="taco song" autoplay="standard" loop="" data-gwd-tl-locked=""></gwd-youtube>
+          <audio is="gwd-audio" id="gwd-audio_1" class="gwd-audio-11vh" loop="" data-gwd-name="taco song" sources="taco.mp3" data-gwd-tl-locked="" autoplay=""></audio>
         </div>
       </div>
     </div>
